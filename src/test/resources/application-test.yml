@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:livrariaTest
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate.ddl-auto: create
