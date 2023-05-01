@@ -1,4 +1,4 @@
-package stubs;
+package com.db.livraria.stubs;
 
 import com.db.livraria.dto.request.CadastroAutor;
 import com.db.livraria.dto.response.AutorDetails;
@@ -23,6 +23,14 @@ public class AutorStub {
                 .nome("Monteiro Lobato")
                 .genero("Masculino")
                 .anoNascimento(Year.of(1882))
+                .cpf("57543425947")
+                .build();
+    }
+    public static CadastroAutor criarStubAutorCadastroNulo(){
+        return CadastroAutor.builder()
+                .nome("Monteiro Lobato")
+                .genero(null)
+                .anoNascimento(null)
                 .cpf("57543425947")
                 .build();
     }

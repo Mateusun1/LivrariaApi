@@ -1,4 +1,4 @@
-package stubs;
+package com.db.livraria.stubs;
 
 import com.db.livraria.dto.request.CadastroAluguel;
 import com.db.livraria.dto.response.AluguelDetails;

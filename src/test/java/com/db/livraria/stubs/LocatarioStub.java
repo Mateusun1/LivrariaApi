@@ -1,4 +1,4 @@
-package stubs;
+package com.db.livraria.stubs;
 
 import com.db.livraria.dto.request.AtualizarLocatario;
 import com.db.livraria.dto.request.CadastroLocatario;

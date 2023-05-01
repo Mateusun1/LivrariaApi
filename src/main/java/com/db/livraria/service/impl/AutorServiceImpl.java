@@ -1,6 +1,7 @@
 package com.db.livraria.service.impl;
 
 import com.db.livraria.dto.request.CadastroAutor;
+import com.db.livraria.exception.CpfDuplicadoException;
 import com.db.livraria.exception.LivroAtreladoException;
 import com.db.livraria.exception.NotFoundException;
 import com.db.livraria.model.Autor;
@@ -27,6 +28,10 @@ public class AutorServiceImpl implements AutorService {
     @Override
     public Autor salvar(CadastroAutor autorCadastrado) {
         Autor autorEntity = toAutor(autorCadastrado);
+
+        if (autorRepository.findByCpf(autorEntity.getCpf()).isPresent()){
+            throw new CpfDuplicadoException("Cpf já existe");
+        }
         autorRepository.save(autorEntity);
         return autorEntity;
     }

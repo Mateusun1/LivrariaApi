@@ -1,6 +1,5 @@
-package stubs;
+package com.db.livraria.stubs;
 
-import com.db.livraria.dto.request.CadastroAutor;
 import com.db.livraria.dto.request.CadastroLivro;
 import com.db.livraria.dto.response.AutorDetails;
 import com.db.livraria.dto.response.ListagemObrasAutor;
@@ -33,11 +32,35 @@ public class LivroStub {
                 .autoresId(List.of(1L))
                 .build();
     }
+    public static CadastroLivro criarStubLivroCadastroComDataPubicacaoNulo(){
+        return CadastroLivro.builder()
+                .nome("O Minotauro")
+                .isbn("9788525044297")
+                .dataPublicacao(null)
+                .autoresId(List.of(1L))
+                .build();
+    }
+    public static CadastroLivro criarStubLivroCadastroComAutoresNulos(){
+        return CadastroLivro.builder()
+                .nome("O Minotauro")
+                .isbn("9788525044297")
+                .dataPublicacao(LocalDate.of(2020, 11, 11))
+                .autoresId(null)
+                .build();
+    }
     public static LivroDetails criarStubLivroDetails(){
         AutorDetails autorDetails = AutorStub.criarStubAutorDetails();
         return LivroDetails.builder()
                 .nome("O Minotauro")
                 .alugado(false)
+                .autores(List.of(autorDetails))
+                .build();
+    }
+    public static LivroDetails criarStubLivroDetailsAlugado(){
+        AutorDetails autorDetails = AutorStub.criarStubAutorDetails();
+        return LivroDetails.builder()
+                .nome("O Minotauro")
+                .alugado(true)
                 .autores(List.of(autorDetails))
                 .build();
     }
